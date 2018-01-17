@@ -1,0 +1,8 @@
+%YAML 1.2
+
+#General Component Desciption
+component : "Cream-CE"
+version : 2.7
+docker_hub_url : ""
+puppet_forge_url: ""
+#Configration Metadata
