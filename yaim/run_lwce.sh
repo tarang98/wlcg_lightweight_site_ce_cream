@@ -3,5 +3,6 @@ sudo docker run -d \
 	--name lwce \
 	--mount type=bind,source="$(pwd)"/ce-config,target=/ce-config \
 	--net host \
-	maany/lightweight-site-ce \
+	--privileged \
+	cream-ce \
 	/bin/bash

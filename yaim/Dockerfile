@@ -5,10 +5,11 @@ MAINTAINER Mayank Sharma (mayank.sharma@cern.ch)
 #   Misc packages
 ########################
 
-#install sudo and wget
+#install sudo, wget and openssh-clients
 RUN yum install -y \
 	sudo \
-	wget
+	wget \
+        openssh-clients
 
 ########################
 #        UMD 3
@@ -64,6 +65,6 @@ RUN perl -pi.bak -e 's/while.*]/for i in `seq 10`/' /etc/init.d/pbs_server
 VOLUME /ce-config
 
 # init script on launch
-ENTRYPOINT ["/ce-config/init.sh"]
+#ENTRYPOINT ["/ce-config/init.sh"]
 
 

@@ -31,4 +31,5 @@ echo "Starting YAIM..."
 service sshd start
 service crond start
 #service autofs start
+#sleep 300
 
