@@ -1,0 +1,5 @@
+expected-from-site-level-config:
+    wn_list: /root/wn-list.conf
+    users_conf: /root/users.conf
+    groups_conf: str()
+    edgusers: str()
