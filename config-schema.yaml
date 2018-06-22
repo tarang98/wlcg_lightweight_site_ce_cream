@@ -1,61 +1,62 @@
 ---
+### To be standalone, we need to provide parameters that the repository needs from level-1 (site-level-configuration-file)
 available-from-site-level-config:
-    site_name: str()
-    site_email: str()
-    site_lat: str()
-    site_long: str()
-    site_desc: str()
-    site_loc: str()
-    site_web: str()
-    site_security_email: str()
-    site_support_email: str()
-    tier: str()
-    bdii_host: str()
-    use_argus: str()
-    vos: str()
+    site_name: { type: str(), required: true, use_default: false }
+    site_email: { type: email(), required: false, use_default: false } 
+    site_lat: { type: latitude(), required: false, use_default: true }
+    site_long: { type: longitude(), required: false, use_default: true }
+    site_desc: { type: str(), required: false, use_default: false }
+    site_loc: { type: str(), required: false, use_default: false}
+    site_web: { type: weblink(), required: false, use_default: false}
+    site_security_email: { type: email(), required: false, use_default: false}
+    site_support_email: { type: email(), required: false, use_default: false}
+    tier: { type: int(), required: false, use_default: false}
+    bdii_host: { type: weblink(), required: false, use_default: false}
+    use_argus: { type: bool() , required: false, use_default: true}
+    vos: { type: yaml_object(), required: true, use_default: false }
 expected-from-site-level-config:
-    mysql_password: str()
-    ce_host: str()
-    globus_tcp_port_range: str()
-    ce_batch_sys: str()
-    ce_capability: str()
-    ce_cpu_model: str()
-    ce_cpu_speed: str()
-    ce_cpu_vendor: str()
-    ce_inboundip: str()
-    ce_logcpu: str()
-    ce_minphysmem: str()
-    ce_minvirtmem: str()
-    ce_os: str()
-    ce_os_arch: str()
-    ce_os_release: str()
-    ce_os_version: str()
-    ce_otherdescr: str()
-    ce_outboundip: str()
-    ce_physcpu: str()
-    ce_runtimeenv: str()
-    ce_sf00: str()
-    ce_si00: str()
-    ce_smpsize: str()
-    batch_server: str()
-    job_manager: str()
-    ce_batch_sys: str()
-    batch_log_dir: str()
-    batch_version: str()
-    blparser_with_updater_notifier: str()
-    blparser_host: str()
-    cemon_host: str()
-    cream_db_user: str()
-    cream_db_password: str()
-    apel_mysql_host: str()
-    apel_db_password: str()
-    ce_close_se: str()
-    ce_close_se3_access_point: str()
-    ce_close_se3_host: str()
-    se_list: str()
-    se_mount_info_list: str()
-    vo_sw_dir: str()
-    queues: str()
+    mysql_password: { type: password(), required: true, use_default: true}
+    ce_host: { type: str(), required: true, use_default: false}
+    globus_tcp_port_range: { type: range(), required: true, use_default: true}
+    ce_batch_sys: { type: str(), required: true, use_default: true}
+    ce_capability: { type: str(), required: true, use_default: true} #glue
+    ce_cpu_model: { type: str(), required: true, use_default: true} #glue
+    ce_cpu_speed: { type: int(), required: true, use_default: true} #GlueHostProcessorClockSpeed
+    ce_cpu_vendor: { type: str(), required: true, use_default: true}
+    ce_inboundip: { type: bool(), required: true, use_default: false} #GlueHostNetworkAdapterInboundIP
+    ce_logcpu: { type: int(), required: true, use_defaul8t: false} # GlueSubClusterLogicalCPUs
+    ce_minphysmem: { type: int(), required: true, use_default: false}
+    ce_minvirtmem: { type: int(), required: true, use_default: false}
+    ce_os: { type: str(), required: true, use_default: true} #default value for container; SET
+    ce_os_arch: { type: str(), required: true, use_default: false} #GlueHostArchitecturePlatformType
+    ce_os_release: { type: str(), required: true, use_default: true} #SET
+    ce_os_version: { type: str(), required: true, use_default: true}
+    ce_otherdescr: { type: str(), required: false, use_default: true}
+    ce_outboundip: { type: bool(), required: true, use_default: false} # GlueHostNetworkAdapterOutboundIP
+    ce_physcpu: { type: int(), required: true, use_default: false} #GlueSubClusterPhysicalCPUs
+    ce_runtimeenv: { type: str(), required: true, use_default: true} #GlueHostApplicationSoftwareRunTimeEnvironmen
+    ce_sf00: { type: int(), required: true, use_default: false} #GlueHostBenchmarkSF00
+    ce_si00: { type: int(), required: true, use_default: false} #
+    ce_smpsize: { type: int(), required: false, use_default: false} #GlueHostArchitectureSMPSize
+    batch_server: { type: str(), required: true, use_default: true} #SET
+    job_manager: { type: str(), required: true, use_default: true} #SET
+    ce_batch_sys: { type: str(), required: true, use_default: true} #SET
+    batch_log_dir: { type: path(), required: true, use_default: true}
+    batch_version: { type: str(), required: true, use_default: true} #SET
+    blparser_with_updater_notifier: { type: bool(), required: true, use_default: false}
+    blparser_host: { type: fqdn(), required: true, use_default: false}
+    cemon_host: { type: fqdn(), required: true, use_default: false}
+    cream_db_user: { type: str(), required: true, use_default: true}
+    cream_db_password: { type: password(), required: true, use_default: true}
+    apel_mysql_host: { type: str(), required: true, use_default: true}
+    apel_db_password: { type: password(), required: true, use_default: true}
+    ce_close_se: { type: str(), required: false, use_default: false} #link?
+    ce_close_se3_access_point: { type: path(), required: true, use_default: true} #link?
+    ce_close_se3_host: { type: fqdn(), required: true, use_default: true} #link?
+    se_list: { type: str(), required: true, use_default: true}
+    se_mount_info_list: { type: str(), required: true, use_default: true}
+    vo_sw_dir: { type: path(), required: true, use_default: true}
+    queues: { type: str(), required: true, use_default: true}
     # alice_group_enable: str()
     # vo_alice_default_se: str()
     # vo_alice_queues: str()
