@@ -44,7 +44,7 @@ available-from-site-level-config:
     - &ce_close_se3_host: "not-used.some-domain" #check
     - &se_list: *ce_close_se3_host
     - &se_mount_info_list: "none"
-    - &vo_sw_dir: "/opt/exp_soft"
+    - &vo_sw_dir: "/opt/exp_soft" #SET
     - &queues: *vos
 
 
