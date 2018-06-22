@@ -1,68 +1,50 @@
-cream-info:
-    mysql_password: password()
+available-from-site-level-config:
+    - &site_lat: 0
+    - &site_long: 0 
+    - &use_argus: false
     #ce_host: str() #value needs to be hostname of the container
-    globus_tcp_port_range: port_range() "20000, 21000"
-    ce_batch_sys: pbs
-    ce_capability: "CPUScalingReferenceSI00=1000"
-    ce_cpu_model: Xeon
-    ce_cpu_speed: "2800"
-    ce_cpu_vendor: intel
-    ce_inboundip: "FALSE"
-    ce_logcpu: "0"
-    ce_minphysmem: "2000"
-    ce_minvirtmem: "8192"
-    ce_os: "ScientificCERNSLC"
-    ce_os_arch: "x86_64"
-    ce_os_release: "6.8"
-    ce_os_version: "Carbon"
-    ce_otherdescr: "Cores=4"
-    ce_outboundip: "TRUE"
-    ce_physcpu: ""
-    ce_runtimeenv: str()
-    ce_sf00: str()
-    ce_si00: str()
-    ce_smpsize: str()
-    batch_server: str()
-    job_manager: str()
-    ce_batch_sys: str()
-    batch_log_dir: str()
-    batch_version: str()
-    blparser_with_updater_notifier: str()
-    blparser_host: str()
-    cemon_host: str()
-    cream_db_user: str()
-    cream_db_password: str()
-    apel_mysql_host: str()
-    apel_db_password: str()
-    ce_close_se: str()
-    ce_close_se3_access_point: str()
-    ce_close_se3_host: str()
-    se_list: str()
-    se_mount_info_list: str()
-    vo_sw_dir: str()
-    vos: str()
-    queues: str()
-    alice_group_enable: str()
-    vo_alice_default_se: str()
-    vo_alice_queues: str()
-    vo_alice_storage_dir: str()
-    vo_alice_sw_dir: str()
-    vo_alice_voms_servers: str()
-    vo_alice_vomses: str()
-    vo_alice_voms_ca_dn: str()
-    dteam_group_enable: str()
-    vo_dteam_sw_dir: str()
-    vo_dteam_default_se: str()
-    vo_dteam_storage_dir: str()
-    vo_dteam_voms_servers: str()
-    vo_dteam_vomses: str()
-    vo_dteam_voms_ca_dn: str()
-    ops_group_enable: str()
-    vo_ops_sw_dir: str()
-    vo_ops_default_se: str()
-    vo_ops_storage_dir: str()
-    vo_ops_vomses: str()
-    vo_ops_voms_ca_dn: str()
-    vo_ops_voms_servers: str()
+    - &globus_tcp_port_range: {
+        begin: 20000,
+        end: 21000
+    }
+    - &ce_batch_sys: pbs
+    - &ce_capability: "CPUScalingReferenceSI00=1000"
+    - &ce_cpu_model: Xeon
+    - &ce_cpu_speed: 2800
+    - &ce_cpu_vendor: intel
+    - &ce_inboundip: false
+    - &ce_logcpu: 0
+    - &ce_minphysmem: 2000
+    - &ce_minvirtmem: 8192
+    - &ce_os: ScientificCERNSLC #SET
+    - &ce_os_arch: "x86_64"
+    - &ce_os_release: "6.8" #SET
+    - &ce_os_version: Carbon #SET
+    - &ce_otherdescr: "Cores=4"
+    - &ce_outboundip: true
+    - &ce_physcpu: 0
+    - &ce_runtimeenv: EMI-3 #SET
+    - &ce_sf00: 0
+    - &ce_si00: 381
+    - &ce_smpsize: 8
+    #batch_server: str() #value needs to be hostname of container
+    - &job_manager: pbs #SET
+    - &ce_batch_sys: torque #SET
+    - &batch_log_dir: "/var/spool/pbs" #SET
+    - &batch_version: 2.5.13-1cri.9nik #SET
+    - &blparser_with_updater_notifier: true
+    - &blparser_host: *ce_host  
+    - &cemon_host: *ce_host
+    - &cream_db_user: cream
+    #cream_db_password: str()
+    - &apel_mysql_host: *ce_host
+    #apel_db_password: 
+    - &ce_close_se: SE3
+    - &ce_close_se3_access_point: "/not/used" #check
+    - &ce_close_se3_host: "not-used.some-domain" #check
+    - &se_list: *ce_close_se3_host
+    - &se_mount_info_list: "none"
+    - &vo_sw_dir: "/opt/exp_soft"
+    - &queues: *vos
 
 
