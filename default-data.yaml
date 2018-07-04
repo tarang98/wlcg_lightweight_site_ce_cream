@@ -7,7 +7,6 @@ available-from-site-level-config:
         begin: 20000,
         end: 21000
     }
-    - &ce_batch_sys: pbs
     - &ce_capability: "CPUScalingReferenceSI00=1000"
     - &ce_cpu_model: Xeon
     - &ce_cpu_speed: 2800
