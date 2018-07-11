@@ -3,10 +3,10 @@ available-from-site-level-config:
     - &site_long site_long: 0 
     - &use_argus use_argus: false
     - &ce_host ce_host: str() #value needs to be hostname of the container
-    - &globus_tcp_port_range globus_tcp_port_range: {
-        begin: 20000,
-        end: 21000
-    }
+    #- &globus_tcp_port_range globus_tcp_port_range: {
+    #    begin: 20000,
+    #    end: 21000
+    #}
     - &ce_capability ce_capability: "CPUScalingReferenceSI00=1000"
     - &ce_cpu_model ce_cpu_model: Xeon
     - &ce_cpu_speed ce_cpu_speed: 2800
